@@ -1,5 +1,5 @@
 import './App.css';
-import GumletDRMPlayer from "./lib/component/player"
+import ReactDRMPlayer from "./lib/component/player"
 
 function App() {
   const onError = (error) => {
@@ -8,8 +8,8 @@ function App() {
 
   return (
     <div className="App">
-      <GumletDRMPlayer 
-        videoURI={`https://video.gumlet.io/5f462c1561cf8a766464ffc4/63bbcd99b03c5ea88606d0cd/main.m3u8`} 
+      <ReactDRMPlayer 
+        src={`https://video.gumlet.io/5f462c1561cf8a766464ffc4/63bbcd99b03c5ea88606d0cd/main.m3u8`} 
         fairplayCertificateURI={`https://fairplay.gumlet.com/certificate/5f2bdde3e93619b8859d8831`}
         fairplayLicenseURI={`https://fairplay.gumlet.com/licence/5f2bdde3e93619b8859d8831/63bbcd99b03c5ea88606d0cd?expires=1673286311740&token=9c6c12919da400d20be2f6e31ce2a2cab2c76d24`}
 

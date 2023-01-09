@@ -1,70 +1,67 @@
-# Getting Started with Create React App
+# React DRM Player
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Introduction
 
-## Available Scripts
+`@gumlet/react-drm-player` is a simple player which supoprts DRM.
+It uses [shaka-player.js](https://github.com/shaka-project/shaka-player) to play your DRM protected video playback if your browser supports `html 5 video` and `MediaSource Extension`.
 
-In the project directory, you can run:
+```bash
+npm i @gumlet/react-drm-player
+```
 
-### `npm start`
+The player automatically detects fairplay or widevine playback
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Example
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Using the ReactDRMPlayer component
 
-### `npm test`
+```javascript
+import React from 'react';
+import ReactDOM from 'react-dom';
+import ReactDRMPlayer from '@gumlet/react-drm-player';
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+ReactDOM.render(
+  <ReactDRMPlayer 
+        videoURI={`<YOUR DRM PROTECTED VIDEO URL>`} 
+        fairplayCertificateURI={`<YOUR FAIRPLAY CERTIFICATE URI>`}
+        fairplayLicenseURI={`<YOUR PAIRPLAY LICENSE URI>`}
 
-### `npm run build`
+        widevineLicenseURI={`<YOUR WIDEVINE LICENSE URI>`}
+        onPlayerError={(error) => {onError(error)}}
+        onPlaybackError={(error) => {onError(error)}}
+        width="640" 
+        height="264" 
+        controls 
+        muted
+        preload="none"
+        autoPlay={false}
+    />,
+  document.getElementById('app')
+);
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Props
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+All [video properties](https://www.w3schools.com/tags/att_video_poster.asp) are supported and passed down to the underlying video component
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+| Prop                     | Description                                                                                                             |
+| ------------------------ | ----------------------------------------------------------------------------------------------------------------------- |
+| src `String`, `required` | The DRM protected video url that you want to play                                                                                       |
+| fairplayCertificateURI `String`, `required` | URL of the server which returns the fairplay certificate                                                                                       |
+| fairplayLicenseURI `String`, `required` | URL of the server which returns the fairplay license                                                                                       |
+| widevineLicenseURI `String`, `required` | URL of the server which returns the widevine license                                                                                       |
+| autoPlay `Boolean`       | Autoplay when component is ready. Defaults to `false`                                                                   |
+| controls `Boolean`       | Whether or not to show the playback controls. Defaults to `false`                                                       |
+| width `Number`           | Video width. Defaults to `100%`                                                                                         |
+| height `Number`          | Video height. Defaults to `auto`                                                                                        |
+| onPlayerError `Callback`          | Callback to be called when the player experiences an error during player startup and setup                                                                                       |
+| onPlaybackError `Callback`          | Callback to be called when the playback experiences an error during ongoing video playback                                                                                        |
 
-### `npm run eject`
+## Maintainer
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+This library is maintained by <a href="https://www.gumlet.com" target="_blank">Gumlet.com</a>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+[<img src="https://assets.gumlet.com/public/img/logo.png" width="300px">](https://www.gumlet.com)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<!-- markdownlint-enable -->
+<!-- prettier-ignore-end -->

@@ -1,11 +1,11 @@
 import React, { useState, useRef, useEffect } from "react";
 import shaka from 'shaka-player/dist/shaka-player.ui';
 
-export default function GumletDRMPlayer({
+export default function ReactDRMPlayer({
     fairplayLicenseURI="",
     fairplayCertificateURI="",
     widevineLicenseURI="",
-    videoURI="",
+    src="",
     onPlayerError,
     onPlaybackError,
     ...props
@@ -46,7 +46,7 @@ export default function GumletDRMPlayer({
           }
         });
     
-        player.load(videoURI).then(function() {
+        player.load(src).then(function() {
             setAssetLoaded(true);
         }).catch(onInternalPlaybackError); 
     }
@@ -96,7 +96,7 @@ export default function GumletDRMPlayer({
             }
         });
     
-        player.load(videoURI).then(function() {
+        player.load(src).then(function() {
             setAssetLoaded(true);
         }).catch(onInternalPlaybackError);
     }
@@ -108,7 +108,7 @@ export default function GumletDRMPlayer({
     
         player.addEventListener('error', onInternalPlayerError);
     
-        player.load(videoURI).then(function() {
+        player.load(src).then(function() {
             setAssetLoaded(true);
         }).catch(onInternalPlaybackError);
     }
