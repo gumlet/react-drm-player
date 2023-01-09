@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import shaka from 'shaka-player';
-// import shaka from 'shaka-player/dist/shaka-player.ui.debug';
+import shaka from 'shaka-player/dist/shaka-player.ui';
 
 export default function GumletDRMPlayer({
     fairplayLicenseURI="",
@@ -28,7 +27,7 @@ export default function GumletDRMPlayer({
 
     async function loadAssetWithWidevine() {
         let video = controllerRef.current;
-      
+            
         let player = new shaka.Player(video);
     
         player.addEventListener('error', onInternalPlayerError);
@@ -55,13 +54,12 @@ export default function GumletDRMPlayer({
     async function loadAssetWithFairplay() {
         const req = await fetch(fairplayCertificateURI);
         const cert = await req.arrayBuffer();
-    
+        
         let video = controllerRef.current;
       
         let player = new shaka.Player(video);
     
         player.getNetworkingEngine().registerRequestFilter((type, request) => {
-            console.log(type, "Printing type....");
             if (type != shaka.net.NetworkingEngine.RequestType.LICENSE) {
                 return;
             }
@@ -83,7 +81,6 @@ export default function GumletDRMPlayer({
             response.data = shaka.util.Uint8ArrayUtils.fromBase64(parsedResponse.ckc).buffer;
         });
     
-        player.addEventListener('error', onInternalPlayerError);
         player.addEventListener('error', onInternalPlayerError);
 
         player.configure({
@@ -128,7 +125,7 @@ export default function GumletDRMPlayer({
 
     return (
         <>
-            <video ref={controllerRef} preload="none" autoPlay={false} {...props}></video>
+            <video ref={controllerRef} {...props}></video>
         </>
     );
 }
