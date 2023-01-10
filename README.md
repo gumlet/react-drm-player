@@ -21,14 +21,12 @@ import ReactDOM from 'react-dom';
 import ReactDRMPlayer from '@gumlet/react-drm-player';
 
 ReactDOM.render(
-  <ReactDRMPlayer 
-        videoURI={`<YOUR DRM PROTECTED VIDEO URL>`} 
+    <ReactDRMPlayer 
+        src={`<YOUR DRM PROTECTED VIDEO URL>`} 
         fairplayCertificateURI={`<YOUR FAIRPLAY CERTIFICATE URI>`}
         fairplayLicenseURI={`<YOUR PAIRPLAY LICENSE URI>`}
 
         widevineLicenseURI={`<YOUR WIDEVINE LICENSE URI>`}
-        onPlayerError={(error) => {onError(error)}}
-        onPlaybackError={(error) => {onError(error)}}
         width="640" 
         height="264" 
         controls 
