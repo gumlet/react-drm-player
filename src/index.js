@@ -1,15 +1,17 @@
-import React, { Fragment, useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import shaka from 'shaka-player/dist/shaka-player.ui';
 
-export default function ReactDRMPlayer({
-    fairplayLicenseURI="",
-    fairplayCertificateURI="",
-    widevineLicenseURI="",
-    src="",
-    onPlayerError,
-    onPlaybackError,
-    ...props
-}){
+const ReactDRMPlayer = props => {
+    const {
+        fairplayLicenseURI="",
+        fairplayCertificateURI="",
+        widevineLicenseURI="",
+        src="",
+        onPlayerError,
+        onPlaybackError,
+        ...configs
+    }  = props;
+
     const controllerRef = useRef(null);
     const [assetLoaded, setAssetLoaded] = useState(false);
     
@@ -124,8 +126,8 @@ export default function ReactDRMPlayer({
     }, [assetLoaded]);
 
     return (
-        <Fragment>
-            <video ref={controllerRef} {...props}></video>
-        </Fragment>
+        <video ref={controllerRef} {...configs}></video>
     );
 }
+
+export default ReactDRMPlayer;

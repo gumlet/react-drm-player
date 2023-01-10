@@ -18,13 +18,14 @@ The player automatically detects fairplay or widevine playback.
 ### Using the ReactDRMPlayer component
 
 ```javascript
-import React from 'react';
-import ReactDOM from 'react-dom';
+import './App.css';
 import ReactDRMPlayer from '@gumlet/react-drm-player';
 
-ReactDOM.render(
-    <ReactDRMPlayer 
-        src={`<YOUR DRM PROTECTED VIDEO URL>`} 
+function App() {
+  return (
+    <div className="App">
+      <ReactDRMPlayer 
+        src={`<YOUR DRM PROTECTED HLS/DASH URI>`} 
         fairplayCertificateURI={`<YOUR FAIRPLAY CERTIFICATE URI>`}
         fairplayLicenseURI={`<YOUR PAIRPLAY LICENSE URI>`}
 
@@ -35,9 +36,12 @@ ReactDOM.render(
         muted
         preload="none"
         autoPlay={false}
-    />,
-  document.getElementById('app')
-);
+      />
+    </div>
+  );
+}
+
+export default App;
 ```
 
 ## Props
