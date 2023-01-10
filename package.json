@@ -1,7 +1,7 @@
 {
   "name": "@gumlet/react-drm-player",
   "version": "1.0.0",
-  "description": "Component to play DRM enabled playback.",
+  "description": "React component to play DRM enabled content.",
   "main": "./dist/index.js",
   "types": "./dist",
   "files": [
@@ -28,7 +28,7 @@
   "author": "Gumlet",
   "license": "MIT",
   "bugs": {
-    "url": "https://www.gumlet.com/contact/"
+    "url": "https://github.com/gumlet/react-drm-player/issues"
   },
   "dependencies": {
     "shaka-player": "^4.1.2"

@@ -3,13 +3,13 @@
 ## Introduction
 
 `@gumlet/react-drm-player` is a simple player which supoprts DRM.
-It uses [shaka-player.js](https://github.com/shaka-project/shaka-player) to play your DRM protected video playback if your browser supports `html 5 video` and `MediaSource Extension`.
+It uses [shaka-player](https://github.com/shaka-project/shaka-player) to play your DRM protected video playback if your browser supports `html 5 video` and `MediaSource Extension`.
 
 ```bash
 npm i @gumlet/react-drm-player
 ```
 
-The player automatically detects fairplay or widevine playback
+The player automatically detects fairplay or widevine playback.
 
 ## Example
 
