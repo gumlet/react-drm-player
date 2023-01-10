@@ -10,7 +10,7 @@
   "scripts": {
     "start": "webpack— watch",
     "build": "webpack",
-    "prepublish": "npm run build"
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",
