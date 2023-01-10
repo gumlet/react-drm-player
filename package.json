@@ -1,6 +1,6 @@
 {
   "name": "@gumlet/react-drm-player",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "React component to play DRM enabled content.",
   "main": "./dist/index.js",
   "types": "./dist",
