@@ -1,5 +1,7 @@
 # React DRM Player
 
+![npm](https://img.shields.io/npm/dw/@gumlet/react-drm-player)
+
 ## Introduction
 
 `@gumlet/react-drm-player` is a simple player which supoprts DRM.
