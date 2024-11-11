@@ -1,5 +1,9 @@
 # React DRM Player
 
+**Deprecated**: This package is no longer maintained. Please use [react-embed-player](https://www.npmjs.com/package/@gumlet/react-embed-player) instead.
+
+> This package will not receive updates or support. Upgrade to version 2.0.0 for continued support.
+
 ![npm](https://img.shields.io/npm/dw/@gumlet/react-drm-player)
 
 ## Introduction
